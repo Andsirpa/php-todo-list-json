@@ -34,9 +34,10 @@
                         <button class="btn btn-primary mb-3" type="button">Aggiungi</button>
 
                         <ul class="list-group">
-                            <li class="list-group-item">Elemento 1</li>
-                            <li class="list-group-item">Elemento 2</li>
-                            <li class="list-group-item">Elemento 3</li>
+                            <!-- sbarro i tasks done -->
+                            <li v-for="task in taskList" :class="task.done ? 'text-decoration-line-trough' : '' ">
+                                {{task.text}}
+                            </li>
                         </ul>
                     </div>
                 </div>
