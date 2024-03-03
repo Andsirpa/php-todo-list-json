@@ -42,7 +42,7 @@ const app = createApp({
             };
 
             axios.post('../BACK-END/api/store.php', data, params).then((response) => {
-                console.log(response.data);
+                this.taskList = response.data;
             });
         },
     },
