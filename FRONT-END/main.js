@@ -6,27 +6,23 @@ const app = createApp({
             title: 'Todo List',
 
             // array di oggetti
-            taskList: [
-                // do a ciascun oggetto un testo e uno status 
-                // {
-                //     text: 'Task 1',
-                //     done: true,
-                // },
-                // {
-                //     text: 'Task 2',
-                //     done: false,
-                // },
-                // {
-                //     text: 'Task 3',
-                //     done: false,
-                // },
-            ],
+            taskList: [],
         };
     },
 
     methods: {
         // chiamo la taskList dalla API
-    }
+        fetchTaskList() {
+            axios.get('../BACK-END/api/get-tasklist.php').then((response) => {
+                this.taskList = response.data;
+            });
+
+        },
+    },
+
+    mounted() {
+        this.fetchTaskList();
+    },
 });
 
 app.mount('#app');
