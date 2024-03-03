@@ -26,7 +26,7 @@ const app = createApp({
         },
 
         // aggiungo una nuova task
-        fetchStoreTask() {
+        fetchNewTask() {
             // dati da inviare
             const data = {
                 text: this.newTask.text,
