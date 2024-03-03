@@ -7,6 +7,12 @@ const app = createApp({
 
             // array di oggetti
             taskList: [],
+
+            // nuovo task da fare 
+            newTask: {
+                text: '',
+                done: false,
+            }
         };
     },
 
@@ -17,6 +23,27 @@ const app = createApp({
                 this.taskList = response.data;
             });
 
+        },
+
+        // aggiungo una nuova task
+        fetchStoreTask() {
+            // dati da inviare
+            const data = {
+                text: this.newTask.text,
+                done: false,
+
+
+            };
+
+            const params = {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            };
+
+            axios.post('../BACK-END/api/store.php', data, params).then((response) => {
+                console.log(response.data);
+            });
         },
     },
 
