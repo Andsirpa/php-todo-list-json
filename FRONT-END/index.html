@@ -29,9 +29,10 @@
                 <div class="row d-flex justify-content-center">
                     <div class="col-md-5">
                         <div class="input-group mb-3 ">
-                            <input type="text" class="form-control" placeholder="Inserisci un nuovo elemento">
+                            <input v-model="newTask.text" @keyUp.enter="fetchNewTask()" type="text" class="form-control"
+                                placeholder="Inserisci un nuovo elemento">
                         </div>
-                        <button class="btn btn-primary mb-3" type="button">Aggiungi</button>
+                        <button @click="fetchNewTask()" class="btn btn-primary mb-3" type="button">Aggiungi</button>
 
                         <ul class="list-group">
                             <!-- sbarro i tasks done -->

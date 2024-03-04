@@ -37,14 +37,21 @@ const app = createApp({
 
             const params = {
                 headers: {
-                    'Content-Type': 'multipart/form-data',
+                    'Content-Type': 'application/json',
                 },
             };
 
+            // invio la richiesta
             axios.post('../BACK-END/api/store.php', data, params).then((response) => {
-                this.taskList = response.data;
+                const taskListUpdated = response.data;
+
+                // aggiorno la tasklist con la versione aggiornata
+                this.taskList = taskListUpdated;
+
+                // pulisco il campo di testo
+                this.newTask.text = '';
             });
-        },
+        }
     },
 
     mounted() {
