@@ -7,13 +7,13 @@ $new_task = [
 ];
 
 // trasformo il json in array
-$tasklist = json_decode(file_get_contents('../taskList.json'), true);
+$tasklist = json_decode(file_get_contents('./taskList.json'), true);
 $tasklist[] = $new_task;
 
 $tasklist_json = json_encode($tasklist);
-file_put_contents('../taskList.json', $tasklist_json);
+file_put_contents('./taskList.json', $tasklist_json);
 
-$tasklist_updated = json_decode(file_get_contents('../taskList.json'), true);
+$tasklist_updated = json_decode(file_get_contents('./taskList.json'), true);
 
 
 

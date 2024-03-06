@@ -5,7 +5,7 @@ header('Content-Type: application/json; charset=utf-8');
 $task_to_delete = json_decode(file_get_contents('php://input'), true);
 
 // Leggo la lista attuale di task dal file JSON
-$tasklist = json_decode(file_get_contents('../taskList.json'), true);
+$tasklist = json_decode(file_get_contents('./taskList.json'), true);
 
 // Filtriamo la tasklist per rimuovere il task da eliminare
 $tasklist = array_filter($tasklist, function ($task) use ($task_to_delete) {
@@ -16,7 +16,7 @@ $tasklist = array_filter($tasklist, function ($task) use ($task_to_delete) {
 $tasklist_json = json_encode(array_values($tasklist));
 
 // Scrivo la lista di task aggiornata nel file JSON
-file_put_contents('../taskList.json', $tasklist_json);
+file_put_contents('./taskList.json', $tasklist_json);
 
 // Converto nuovamente la lista di task dal formato JSON a un array per conferma
 $tasklist_updated = json_decode($tasklist_json, true);
