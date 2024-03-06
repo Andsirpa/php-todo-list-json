@@ -35,9 +35,10 @@
                         <button @click="fetchNewTask()" class="btn btn-primary mb-3" type="button">Aggiungi</button>
 
                         <ul class="list-group">
-                            <!-- sbarro i tasks done -->
-                            <li v-for="task in taskList" :class="task.done ? 'text-decoration-line-through' : '' ">
-                                {{task.text}}
+                            <li v-for="task in taskList" :class="{ 'text-decoration-line-through': task.done }">
+                                <span>{{ task.text }}</span>
+                                <!-- tasto elimina -->
+                                <button @click="deleteTask(task)" class="btn btn-danger btn-sm">Elimina</button>
                             </li>
                         </ul>
                     </div>
