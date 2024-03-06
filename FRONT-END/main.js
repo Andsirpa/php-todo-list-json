@@ -45,6 +45,17 @@ const app = createApp({
         },
 
 
+        // metodo per eliminare un task
+        deleteTask(task) {
+
+            axios.post('../BACK-END/api/delete-task.php', task)
+                .then(() => {
+
+                    this.fetchTaskList();
+                });
+        },
+
+
 
     },
 
